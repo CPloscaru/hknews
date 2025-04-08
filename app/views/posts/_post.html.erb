@@ -1,0 +1,12 @@
+<div class="post pt-1 d-flex" id="post_<%= post.id %>">
+  <div class="post-id p-3">
+    <span> <%= index + 1 %>. </span>
+  </div>
+  <div class="post-div d-flex p-1">
+    <p class="p-2 caret"><i class="fa-solid fa-caret-up"></i></p>
+    <div class="d-flex flex-column">
+      <h3> <%= link_to "#{post.title}", post_path(post), class:"post-title"%>  <a href=<%= post.url %> class="post-url">(<%= post.url %>)</a></h3>
+      <span><%= post.score %> by <%= post.by %></span>
+    </div>
+  </div>
+</div>
