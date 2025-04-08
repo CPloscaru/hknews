@@ -2,4 +2,5 @@
     <p><%= comment.created_at.strftime('%d %B %Y %H:%M') %></p>
     <p><%= comment.content %></p>
     <p class="comment-author">by <%= comment.user.username %></p>
+    <div id="picmo" class="picmo" data-picmo-target="emoji" data-action="click->picmo#fire"> emoji</div>
 </div>
