@@ -1,0 +1,15 @@
+.comment {
+  border: 2px solid #FF6600;
+  background-color: white ;
+  position:relative;
+}
+
+.content {
+  background: white;
+  color:white;
+}
+.comment .comment-author {
+  position:absolute;
+  right: 5px;
+  bottom: 10px;
+}

@@ -1,10 +1,20 @@
-<div class="post-details">
+<div class="post-container p-3">
   <h2><%= @post.title %></h2>
-  <p> <%= @post.url %></p>
+  <div class="post-details d-flex flex-columns gap-2">
+    <a href=<%= @post.url %>><%= @post.url %></a>
+    <p>| <%= @post.post_type %></p>
+    <p>| by <%= @post.by %></p>
+    <p>| <%= @post.score %> vote(s)</p>
+    <p>| <%= @post.comments.count %> comment(s)</p>
+  </div>
+  <div class="col-6">
+    <% @post.comments.each do |comment| %>
+      <%= render "comment", comment: comment %>
+    <% end %>
 
-  <%= simple_form_for(@comment, method: :post, data) do |f| %>
-    <%= f.input :content %>
-    <%= f.submit "Leave a comment", input_html: {class: "btn btn-success btn-comment"}%>
-  <%= end %>
-
+    <%= simple_form_for(@comment, method: :post, url: post_comments_path(@post, @comment)) do |f| %>
+      <%= f.input :content, label: false, input_html: {class: "content"} %>
+      <%= f.submit "Leave a comment", class: "btn btn-comment btn-success"%>
+    <% end %>
+  </div>
 </div>
